@@ -1,0 +1,5 @@
+# nodejs
+node_modules/
+
+# cpp
+*.out
