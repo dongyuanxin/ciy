@@ -1,5 +1,9 @@
-# nodejs
+# lang: node
 node_modules/
+package-lock.json
 
-# cpp
+# lang: cpp
 *.out
+
+# folder: nodejs
+/nodejs/lib
