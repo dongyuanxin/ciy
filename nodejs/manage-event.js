@@ -1,6 +1,9 @@
 // 管理大型项目中的事件机制，为了防止随意添加事件导致错乱
 // 使用一个白名单，每次操作前进行检查
 // script: npx babel manage-event.js --out-dir lib && node lib/manage-event.js
+// 参考：
+//      1. ts中使用：https://tasaid.com/blog/20171011233014.html
+//      2. es5原理：https://aotu.io/notes/2016/10/24/decorator/index.html
 
 const { EventEmitter } = require('events')
 
