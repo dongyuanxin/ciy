@@ -1,3 +1,4 @@
+#!/bin/bash
 # 国内brew安装rabbit过慢的解决方法
 
 # step0: 用vpn代理shell命令行
