@@ -14,11 +14,16 @@ class UnionFind {
 
     // 合并两个集合
     union(p, q) {
-        this.parent.set(
-            this.find(p),
-            this.find(q)
-        )
+        const rootP = this.find(p)
+        const rootQ = this.find(q)
+        if (rootP !== rootQ) {
+            this.parent.set(
+                this.find(p),
+                this.find(q)
+            )
+        }
     }
 }
+
 
 module.exports.UnionFind = UnionFind

@@ -13,4 +13,13 @@ function test1() {
     assert.strictEqual(uf.find(2), 3)
 }
 
+function test2 () {
+    const uf = new UnionFind()
+    uf.union(1, 1)
+    
+    let root = null
+    assert.strictEqual(uf.find(1), 1)
+}
+
 test1()
+test2()
