@@ -1,4 +1,4 @@
-// ac地址：https://leetcode-cn.com/problems/shu-ju-liu-zhong-de-zhong-wei-shu-lcof/
+// ac地址：https://leetcode-cn.com/problems/find-median-from-data-stream/
 // 方法2: 平衡堆
 // 时间复杂度是：O(1) + 5*O(logN) = O(logN)
 

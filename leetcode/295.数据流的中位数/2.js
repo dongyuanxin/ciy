@@ -2,7 +2,7 @@
 // 时间复杂度是：O(N) + O(logN) = O(N)
 // 二分找到正确位置，再插入到容器中
 
-// ac地址：https://leetcode-cn.com/problems/shu-ju-liu-zhong-de-zhong-wei-shu-lcof/
+// ac地址：https://leetcode-cn.com/problems/find-median-from-data-stream/
 /**
  * initialize your data structure here.
  */
