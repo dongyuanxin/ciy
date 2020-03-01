@@ -4,6 +4,7 @@
 // 参考：
 //      1. ts中使用：https://tasaid.com/blog/20171011233014.html
 //      2. es5原理：https://aotu.io/notes/2016/10/24/decorator/index.html
+//      3. 为什么不能用于函数？因为存在函数提升。https://es6.ruanyifeng.com/#docs/decorator#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A3%85%E9%A5%B0%E5%99%A8%E4%B8%8D%E8%83%BD%E7%94%A8%E4%BA%8E%E5%87%BD%E6%95%B0%EF%BC%9F
 
 const { EventEmitter } = require('events')
 

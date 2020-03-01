@@ -1,4 +1,4 @@
-// 可写流：使用流API底层的I/O输出数据
+// 可写流：使用流API向底层的I/O输出数据
 
 const { Writable } = require('stream')
 

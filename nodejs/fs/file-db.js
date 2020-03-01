@@ -1,6 +1,10 @@
 const fs = require('fs')
 const { EventEmitter } = require('events')
 
+// 设计上：
+// load和close使用events更好，这样具体操作可以放在某个函数作用域中
+// get/del/set 使用async/await更好
+
 /**
  * 文件数据库
  */
