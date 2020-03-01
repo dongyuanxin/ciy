@@ -17,6 +17,8 @@ function check(target, name, descriptor) {
         }
         method.call(this, event, ...args)
     }
+
+    return descriptor
 }
 
 class SafeEventEmitter extends EventEmitter {
