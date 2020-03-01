@@ -4,6 +4,7 @@
 // 在遍历的过程中，如果边(a, b)的两个结点a, b已经属于同一联通分量，则(a, b)就是该联通分量的冗余边。
 
 // ac地址：https://leetcode-cn.com/problems/redundant-connection/
+// 原文地址：https://xxoo521.com/2020-02-28-redundant-connection/
 class UnionFind {
     constructor() {
         this.parent = new Map()

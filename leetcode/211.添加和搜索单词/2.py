@@ -4,6 +4,7 @@
 # python可以勉强ac（2924 ms），Nodejs不可以
 
 # ac地址: https://leetcode-cn.com/problems/add-and-search-word-data-structure-design/
+# 原文地址：https://xxoo521.com/2020-02-29-add-and-search-word/
 
 from re import search
 

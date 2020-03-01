@@ -1,4 +1,6 @@
 // ac地址：https://leetcode-cn.com/problems/find-median-from-data-stream/
+// 原文地址：https://xxoo521.com/2020-02-27-find-median-from-data-stream/
+
 // 方法2: 平衡堆
 // 时间复杂度是：O(1) + 5*O(logN) = O(logN)
 

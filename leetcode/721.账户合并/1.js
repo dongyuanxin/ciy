@@ -1,7 +1,9 @@
 // 方法1: 使用「并查集」
-// ac地址：https://leetcode-cn.com/problems/accounts-merge/
 // 因为存在同名不同人的情况，不要使用map直接hash
 // email才是标识一个人身份的标记
+
+// ac地址：https://leetcode-cn.com/problems/accounts-merge/
+// 原文地址：https://xxoo521.com/2020-02-28-redundant-connection/
 
 class UnionFind {
     constructor() {
@@ -52,7 +54,7 @@ var accountsMerge = function(accounts) {
             }
         }
     }
-    // 步骤2:遍历所有的mail，将各个集合的元素放在对应集合中
+    // 步骤2: 将属于同一连通分量（同一用户）的所有邮箱放入对应的列表中
     const sets = {}; // key: string; value: string[]
     for (const email in map) {
         const root = uf.find(email)

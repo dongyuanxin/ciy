@@ -2,6 +2,8 @@
 // 每次取出元素的时候先排序，再取出
 // JavaScript会timeout，无法ac
 
+// 原文地址：https://xxoo521.com/2020-02-27-find-median-from-data-stream/
+
 /**
  * initialize your data structure here.
  */

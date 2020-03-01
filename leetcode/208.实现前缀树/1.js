@@ -1,4 +1,5 @@
 // ac地址: https://leetcode-cn.com/problems/implement-trie-prefix-tree/
+// 原文地址：https://xxoo521.com/2020-02-29-trie-prefix-tree/
 
 var TrieNode = function() {
     this.next = {}

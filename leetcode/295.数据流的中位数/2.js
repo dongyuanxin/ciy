@@ -3,6 +3,8 @@
 // 二分找到正确位置，再插入到容器中
 
 // ac地址：https://leetcode-cn.com/problems/find-median-from-data-stream/
+// 原文地址：https://xxoo521.com/2020-02-27-find-median-from-data-stream/
+
 /**
  * initialize your data structure here.
  */
