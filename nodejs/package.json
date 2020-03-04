@@ -1,6 +1,7 @@
 {
   "dependencies": {
     "benchmark": "^2.1.4",
+    "http-proxy": "^1.18.0",
     "microtime": "^3.0.0"
   },
   "devDependencies": {

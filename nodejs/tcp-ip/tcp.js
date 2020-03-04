@@ -3,7 +3,7 @@
 // node可以在同一个进程中同时运行c/s端
 
 // Nagle算法：https://baike.baidu.com/item/Nagle%E7%AE%97%E6%B3%95
-
+// 理解Sockets（图解）：https://www.cnblogs.com/dolphinx/p/3460545.html
 const net = require('net')
 const assert = require('assert')
 
