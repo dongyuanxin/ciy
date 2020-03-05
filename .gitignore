@@ -7,3 +7,5 @@ package-lock.json
 
 # folder: nodejs
 /nodejs/lib
+/nodejs/performance/*.log
+/nodejs/performance/*.txt
