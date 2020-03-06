@@ -49,9 +49,17 @@ function orphan() {
     }
 }
 
-// 守护进程
-function daemon() {
+// 守护进程： 在「后台运行」不受「终端控制」的进程（如输入、输出等）：https://www.zhihu.com/question/38609004/answer/77190522
+// 实现参考：https://juejin.im/post/5d082214f265da1bb564f97b
+function createDaemon() {
+    const daemon = spawn('node', ['daemon.js'], {
+        cwd: '/usr', // 更改目录
+        detached : true, // 使其成为进程组的头
+        stdio: 'ignore', // 中断父子进程之间的IO
+    });
 
+    console.log('守护进程开启 父进程 pid: %s, 守护进程 pid: %s', process.pid, daemon.pid);
+    daemon.unref(); // 去除父进程中对子进程的引用
 }
 
 // zombie()
