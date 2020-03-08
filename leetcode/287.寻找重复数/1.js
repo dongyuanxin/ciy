@@ -9,14 +9,13 @@
  */
 var findDuplicate = function(nums) {
     const length = nums.length
-    const n = length - 1
 
     for (let i = 0; i < length; ++i) {
         const val = Math.abs(nums[i])
-        if (nums[val - 1] < 0) {
+        if (nums[val] < 0) {
             return val
         } else {
-            nums[val - 1] *= (-1)
+            nums[val] *= (-1)
         }
     }
 };
