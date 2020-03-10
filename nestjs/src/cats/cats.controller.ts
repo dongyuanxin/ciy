@@ -1,8 +1,21 @@
-import { Controller, Get, Req, Headers, Post, Body, Header, Delete, Param } from '@nestjs/common';
+import { Controller, Get, Req, Headers, Post, Body, Header, Delete, Param, Inject, Optional } from '@nestjs/common';
 import { Request } from 'express'
+import { CatsService } from './cats.service';
 
 @Controller('cats')
 export class CatsController {
+    // 我喜欢的方式：
+    // 基于属性进行依赖注入
+    // 用于继承时，子类不用多次调用super
+    @Inject()
+    private readonly catsService2: CatsService
+
+    // 推荐：通过构造函数直接进行依赖注入
+    constructor(
+        // 可选的，当依赖注入对象不存在时，不会报错
+        @Optional() private readonly catsService: CatsService
+    ) {}
+
     @Get()
     findAll(@Req() req: Request, @Headers() headers): string {
         // @Req() 装饰器可以拿到请求的所有细节
