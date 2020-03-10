@@ -1,15 +1,14 @@
 import { Module } from '@nestjs/common';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { CatsController } from './cats/cats.controller';
-import { SubController } from './cats/sub/sub.controller';
 import { DocsController } from './docs/docs.controller';
-import { CatsService } from './cats/cats.service';
+import { CatsModule } from './cats/cats.module';
+import { CoreModule } from './core/core.module';
 
 @Module({
-  imports: [],
+  imports: [CatsModule, CoreModule],
   // 将控制器加载到模块中，否则nest不会为控制器创建实例
-  controllers: [AppController, CatsController, SubController, DocsController],
-  providers: [AppService, CatsService],
+  controllers: [AppController, DocsController],
+  providers: [AppService],
 })
 export class AppModule {}
