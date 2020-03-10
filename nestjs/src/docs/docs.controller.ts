@@ -1,5 +1,6 @@
-import { Controller, Get, Redirect, Query, Post, HttpException, HttpStatus, Delete } from '@nestjs/common';
+import { Controller, Get, Redirect, Query, Post, HttpException, HttpStatus, Delete, UseFilters } from '@nestjs/common';
 import { ForbiddenException } from './../exceptions/forbidden.exception'
+import { HttpExceptionFilter } from 'src/filters/http-exception.filter';
 
 @Controller('docs')
 export class DocsController {
@@ -21,6 +22,7 @@ export class DocsController {
     }
 
     @Post()
+    @UseFilters(HttpExceptionFilter)
     createDoc() {
         // 支持很多exception，HttpException是基础类
         // 在web开发中，抛出exception可被视为程序错误，要返回给前端可用信息
