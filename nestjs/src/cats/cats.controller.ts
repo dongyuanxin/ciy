@@ -1,6 +1,7 @@
 import { Controller, Get, Req, Headers, Post, Body, Header, Delete, Param, Inject, Optional } from '@nestjs/common';
 import { Request } from 'express'
 import { CatsService } from './cats.service';
+import { Cat } from './cats.interface';
 
 @Controller('cats')
 export class CatsController {
@@ -8,29 +9,30 @@ export class CatsController {
     // 基于属性进行依赖注入
     // 用于继承时，子类不用多次调用super
     @Inject()
-    private readonly catsService2: CatsService
+    private readonly catsService: CatsService
 
     // 推荐：通过构造函数直接进行依赖注入
-    constructor(
-        // 可选的，当依赖注入对象不存在时，不会报错
-        @Optional() private readonly catsService: CatsService
-    ) {}
+    // constructor(
+    //     // 可选的，当依赖注入对象不存在时，不会报错
+    //     @Optional() private readonly catsService: CatsService
+    // ) {}
 
     @Get()
-    findAll(@Req() req: Request, @Headers() headers): string {
+    async findAll(@Req() req: Request, @Headers() headers): Promise<Cat[]> {
         // @Req() 装饰器可以拿到请求的所有细节
         // 它是express.req对象
         // 注意：正常情况不用直接拿全部的，一般使用专用的装饰器，例如 @Body
         console.log('body is', req.body)
         console.log('headers are', headers)
-        return 'This action returns all cats'
+        return await this.catsService.findAll()
     }
 
     @Post()
     @Header('Cache-Control', 'none') // 响应头
-    create(@Body('name') name): string {
-        console.log('body.name is', name)
-        return `create a cat named ${name} success`
+    async create(@Body() body: Cat): Promise<boolean> {
+        console.log('body.name is', body.name)
+        await this.catsService.create(body)
+        return true
     }
 
     // 路由参数
