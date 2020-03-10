@@ -1,4 +1,5 @@
-import { Controller, Get, Redirect, Query } from '@nestjs/common';
+import { Controller, Get, Redirect, Query, Post, HttpException, HttpStatus, Delete } from '@nestjs/common';
+import { ForbiddenException } from './../exceptions/forbidden.exception'
 
 @Controller('docs')
 export class DocsController {
@@ -17,5 +18,18 @@ export class DocsController {
                 statusCode: 301
             }
         }
+    }
+
+    @Post()
+    createDoc() {
+        // 支持很多exception，HttpException是基础类
+        // 在web开发中，抛出exception可被视为程序错误，要返回给前端可用信息
+        throw new HttpException('You cant creare a doc', HttpStatus.FORBIDDEN)
+    }
+
+    @Delete()
+    delDoc() {
+        // 使用自定义的exception
+        throw new ForbiddenException('You can not delete a doc')
     }
 }
