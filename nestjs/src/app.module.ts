@@ -5,11 +5,12 @@ import { DocsController } from './docs/docs.controller';
 import { CatsModule } from './cats/cats.module';
 import { CoreModule } from './core/core.module';
 import { LoggerMiddleware } from './middlewares/logger.middleware';
+import { DogsController } from './dogs/dogs.controller';
 
 @Module({
     imports: [CatsModule, CoreModule],
     // 将控制器加载到模块中，否则nest不会为控制器创建实例
-    controllers: [AppController, DocsController],
+    controllers: [AppController, DocsController, DogsController],
     providers: [AppService],
 })
 export class AppModule implements NestModule{
