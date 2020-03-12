@@ -1,11 +1,4 @@
-import {
-    Controller,
-    Post,
-    Body,
-    UsePipes,
-    Headers
-    Param,
-} from '@nestjs/common';
+import { Controller, Post, Body, UsePipes, Param } from '@nestjs/common';
 import { Dog, DogSchema } from './dogs.interface';
 import { MyTransfromPipe } from 'src/pipes/my-transfrom.pipe';
 import { MyValidationPipe } from 'src/pipes/my-validation.pipe';
