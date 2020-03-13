@@ -1,6 +1,5 @@
 // ac地址：https://leetcode-cn.com/problems/number-of-digit-one/
 // 参考： https://leetcode-cn.com/problems/number-of-digit-one/solution/qiao-miao-shi-jian-fu-za-du-ologn-by-xian-hui/
-
 /**
  * @param {number} n
  * @return {number}
@@ -12,9 +11,10 @@ var countDigitOne = function(n) {
 
     let bit = 1
     let res = 0
-    while (1) {
+    let high = n
+    while (high) {
         // 高位数字：从第bit+1位到最高位
-        let high = Math.floor(n / Math.pow(10, bit)) 
+        high = Math.floor(n / Math.pow(10, bit)) 
         // 从bit位到最高位
         let tmp = Math.floor(n / Math.pow(10, bit - 1))
         // 当前位
@@ -30,6 +30,8 @@ var countDigitOne = function(n) {
         } else {
             res = res + high * Math.pow(10, bit - 1)
         }
-        ++i
+        ++bit
     }
+
+    return res
 };
