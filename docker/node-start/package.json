@@ -1,0 +1,12 @@
+{
+  "name": "start",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "create:image": "docker container run -p 8000:8000 -it node-start"
+  },
+  "author": "",
+  "license": "ISC"
+}
