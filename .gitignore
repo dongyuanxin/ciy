@@ -10,3 +10,5 @@ package-lock.json
 /nodejs/performance/*.log
 /nodejs/performance/*.txt
 /nodejs/performance/*.heapsnapshot
+
+/tmp/
