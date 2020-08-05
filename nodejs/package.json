@@ -2,8 +2,10 @@
   "dependencies": {
     "axios": "^0.19.2",
     "benchmark": "^2.1.4",
+    "glob": "^7.1.6",
     "http-proxy": "^1.18.0",
     "microtime": "^3.0.0",
+    "minimatch": "^3.0.4",
     "request": "^2.88.2"
   },
   "devDependencies": {
