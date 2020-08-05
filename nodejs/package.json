@@ -1,8 +1,10 @@
 {
   "dependencies": {
+    "axios": "^0.19.2",
     "benchmark": "^2.1.4",
     "http-proxy": "^1.18.0",
-    "microtime": "^3.0.0"
+    "microtime": "^3.0.0",
+    "request": "^2.88.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.8.4",
