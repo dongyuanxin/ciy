@@ -1,0 +1,19 @@
+package person;
+syntax = "proto3";
+
+message PersonMessage {
+    required string name = 1;
+    optional string email = 2;
+
+    enum SexType {
+        UNKNOWN = 0;
+        MALE = 1;
+        FEMALE = 2;
+    }
+    required SexType sex = 3 [default = UNKNOWN];
+
+    message LocationType {
+        required string country = 1;
+    }
+    optional LocationType location = 4;
+}

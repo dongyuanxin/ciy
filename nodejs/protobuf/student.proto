@@ -1,0 +1,10 @@
+syntax = "proto3";
+
+import "./person.proto";
+
+package student;
+
+message StudentMessage {
+    required string school = 1;
+    required person.PersonMessage teacher = 2;
+}
