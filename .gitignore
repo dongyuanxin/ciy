@@ -12,3 +12,5 @@ package-lock.json
 /nodejs/performance/*.heapsnapshot
 
 /tmp/
+
+/docker/**/*.zip
