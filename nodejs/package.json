@@ -6,6 +6,7 @@
     "http-proxy": "^1.18.0",
     "microtime": "^3.0.0",
     "minimatch": "^3.0.4",
+    "node-tcp-proxy": "0.0.15",
     "protobufjs": "^6.10.1",
     "request": "^2.88.2"
   },
