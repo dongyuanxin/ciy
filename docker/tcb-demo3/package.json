@@ -1,0 +1,17 @@
+{
+  "name": "tcb-demo3",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "dependencies": {
+    "express": "^4.17.1",
+    "heapdump": "^0.3.15"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "zip:docker": "zip tcb-demo3.zip -r ./ -x node_modules/\\*",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}
