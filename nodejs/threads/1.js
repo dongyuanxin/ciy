@@ -16,11 +16,13 @@ const { Worker, isMainThread } = require('worker_threads');
 if (isMainThread) {
     // 这会在工作线程实例中重新加载当前文件。
     new Worker(__filename);
+    console.log('在主进程中');
+    console.log('isMainThread is', isMainThread);
     // Worker可以启动指定文件，也可以配合eval参数，直接启动代码
     // 由于在子线程中没有process.env，所以这里可以配合workerData选项
     // 那么在子线程中，workerData会按照HTML结构化克隆算法
     // 将workerData克隆到 require('worker_thread')中
 } else {
     console.log('在工作线程中');
-    console.log(isMainThread); // 打印 'false'。
+    console.log('isMainThread is', isMainThread); // 打印 'false'。
 }
