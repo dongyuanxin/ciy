@@ -1,7 +1,8 @@
 const { sequelize } = require('./instance')
 const { User } = require('./models/User')
+const { Op } = require('sequelize')
 
-main();
+bulkCreateUsers();
 
 async function insertUser() {
     await sequelize.authenticate();
@@ -31,4 +32,99 @@ async function insertUser() {
     console.log(user2.toJSON())
 
     await sequelize.close()
+}
+
+async function findAndCountUsers() {
+    const { count, rows } = await User.findAndCountAll({
+        where: {
+            firstName: 'yuanxin'
+        }
+    })
+
+    console.log('>>> rows are', rows.map(row => row.toJSON()))
+    console.log('>>> count is', count)
+}
+
+async function findUsersWithWhere() {
+    const { count, rows } = await User.findAndCountAll({
+        where: {
+            firstName: {
+                [Op.eq]: 'yuanxin'
+            },
+            lastName: 'dong'
+        }
+    })
+
+    console.log('>>> rows are', rows.map(row => row.toJSON()))
+    console.log('>>> count is', count)
+}
+
+async function findUsersWithWhereOr() {
+    const { count, rows } = await User.findAndCountAll({
+        where: {
+            [Op.or]: [
+                {
+                    firstName: 'yuanxin'
+                },
+                {
+                    firstName: 'yuanxin2'
+                }
+            ]
+        }
+    })
+
+    console.log('>>> rows are', rows.map(row => row.toJSON()))
+    console.log('>>> count is', count)
+}
+
+async function updateUser() {
+    const res = await User.update(
+        {
+            firstName: 'yuanxin3'
+        },
+        {
+            where: {
+                firstName: 'yuanxin2'
+            }
+        }
+    )
+
+    console.log('>>> res is', res)
+}
+
+async function destroyUser() {
+    const res = await User.destroy({
+        where: {
+            id: 7
+        }
+    })
+    console.log('>>> res is', res)
+}
+
+async function bulkCreateUsers() {
+    await sequelize.sync({
+        alter: true
+    });
+    await User.bulkCreate(
+        [
+            {
+                firstName: 'runyu',
+                lastName: 'wang',
+                password: '123456'
+            },
+            {
+                firstName: 'yuxin',
+                lastName: 'guo',
+                password: 'fsifjsio'
+            },
+        ],
+        {
+            validate: true, // 强行约束类型，有问题会报错
+            fields: ['firstName', 'lastName'] // 只有fileds中的字段会被使用，主要用于直接写入前端用户的数据
+        }
+    )
+
+    const users = await User.findAll()
+
+    console.log('>>> users are', users.map(user => user.toJSON()))
 }
