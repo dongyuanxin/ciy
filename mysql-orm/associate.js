@@ -10,6 +10,20 @@ studentAndTeacher();
 async function studentAndClassrooms() {
     await sequelize.authenticate();
 
+    // 默认是在students中创建classroomId外键，现在是创建peopleId 和 classroomId 外键
+    // Student.belongsTo(Classroom, {
+    //     as: 'people',
+    //     // foreignKey: 'peopleId',
+    // });
+    // Classroom.hasMany(Student);
+
+    // // await sequelize.sync({
+    // //     alter: true,
+    // // });
+    // // 要先创建被关联的表（ClassRoom）
+    // await Classroom.sync({ force: true });
+    // await Student.sync({ force: true });
+
     Student.belongsTo(Classroom);
     Classroom.hasMany(Student);
 
