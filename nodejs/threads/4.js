@@ -21,17 +21,17 @@ if (isMainThread) {
     // 如果想共享内存，那么需要sharedArray，并且不能放入transList（保证可用）
     // 参考5.js https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/SharedArrayBuffer
 
-    subChannel.port2.on('message', value => {
+    subChannel.port2.on('message', (value) => {
         subChannel.port1.postMessage('helo');
-        console.log('接收到:', value);
-        console.log(uint8Array);
+        console.log('[master] 接收到:', value);
+        console.log('[master]', uint8Array);
     });
 } else {
-    parentPort.once('message', value => {
+    parentPort.once('message', (value) => {
         assert(value.hereIsYourPort instanceof MessagePort);
         value.uint8Arr[1] = 10;
         console.log(value.uint8Arr);
-        value.hereIsYourPort.postMessage('工作线程正在发送此消息');
+        value.hereIsYourPort.postMessage('工作线程的消息');
         value.hereIsYourPort.close();
     });
 }
