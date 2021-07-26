@@ -8,6 +8,14 @@ int main()
 
     int nums[] = {1, 2, 3, 4};
     func3(4, nums); // 打印 nums 数组
+
+    /**
+     * 三、数组和指针
+     * 对于nums数组来说，nums就是指针，它的值等于第一个元素的地址，即：&nums[0]
+    **/
+    int *nums_ptr;
+    nums_ptr = nums;
+    printf("nums[1] is %d\n", *(nums_ptr + 1)); // 输出 2
     return 0;
 }
 
