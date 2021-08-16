@@ -2,27 +2,26 @@
 #include <fcntl.h>
 #include <utmp.h>
 #include <unistd.h>
-
+#include "./mem_cache_lib.h"
 #define SHOWHOST
 
 void show_info(struct utmp *utbufp);
 
 int main(int argc, char *argv[])
 {
-    int fd;
-    //打开utmp文件，UTMP_FILE定义在utmp.h中，指示了文件路径
-    if ((fd = open(UTMP_FILE, O_RDONLY)) == -1)
+    struct utmp *utbufp;
+
+    if (utmp_open(UTMP_FILE) == -1)
     {
-        return 1;
+        perror(UTMP_FILE);
+        return -1;
     }
-    struct utmp current_record;
-    int reclen = sizeof(current_record);
-    //循环读取utmp文件中结构体数组中的每一个结构体并解析处理
-    while (read(fd, &current_record, reclen) == reclen)
+
+    while ((utbufp = utmp_next()) != NULLUT)
     {
-        show_info(&current_record);
+        show_info(utbufp);
     }
-    close(fd);
+    utmp_close();
     return 0;
 }
 
